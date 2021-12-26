@@ -1,9 +1,14 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+ <n-config-provider :theme="getDarkThemState">
+    <Navbar />
+
+      <!-- FOR FADE IN TRANSITIONS -->
+      <router-view v-slot="{ Component }">
+        <transition name="fade" mode="out-in">
+          <component :is="Component" />
+        </transition>
+      </router-view>
+  </n-config-provider>
 </template>
 
 <style>
@@ -15,16 +20,37 @@
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
+
+
+<script>
+import { defineAsyncComponent, computed } from 'vue';
+import { useStore } from 'vuex'
+
+export default {
+  name: 'App',
+  components: {
+    Navbar: defineAsyncComponent( () =>  import('./modules/shared/Navbar.vue') )
+  },
+
+  setup(){
+
+      const store = useStore()
+
+      return {
+        getDarkThemState: computed(() => store.getters['getDarkThemeState'] ),
+      }
+  }
+
+}
+</script>

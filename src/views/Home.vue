@@ -1,18 +1,54 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+   <n-space vertical size="large">
+    <n-layout>
+      <n-layout-header>Yiheyuan Road</n-layout-header>
+      <n-layout-content content-style="padding: 24px;"
+        >Pingshan Road</n-layout-content
+      >
+      <n-layout-footer>Chengfu Road</n-layout-footer>
+    </n-layout>
+    <n-layout>
+      <n-layout-header>Yiheyuan Road</n-layout-header>
+      <n-layout has-sider>
+        <n-layout-sider content-style="padding: 24px;"
+          >Handian Bridge</n-layout-sider
+        >
+        <n-layout-content content-style="padding: 24px;"
+          >Pingshan Road</n-layout-content
+        >
+      </n-layout>
+      <n-layout-footer>Chengfu Road</n-layout-footer>
+    </n-layout>
+    <n-layout has-sider>
+      <n-layout-sider content-style="padding: 24px;"
+        >Handian Bridge</n-layout-sider
+      >
+      <n-layout>
+        <n-layout-header>Yiheyuan Road</n-layout-header>
+        <n-layout-content content-style="padding: 24px;"
+          >Pingshan Road</n-layout-content
+        >
+        <n-layout-footer>Chengfu Road</n-layout-footer>
+      </n-layout>
+    </n-layout>
+  </n-space>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+  },
+  setup(){
+
   }
 }
 </script>
+
+<style scoped>
+/* .section{
+  display: flex;
+} */
+</style>
