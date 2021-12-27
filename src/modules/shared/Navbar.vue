@@ -55,7 +55,7 @@ export default {
 }
 
 .bg-primary{
-    background-color: #1D4170;
+    background-color: #1A374D;
     color: white;
 }
 

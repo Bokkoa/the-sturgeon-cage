@@ -5,7 +5,7 @@ export default {
 
     path: '/',
     name: 'fish',
-    component: () => import(/*webpackChunkName: "fish layout" */ '@/modules/fish/layouts/FishLayout.vue'),
+    component: () => import(/* webpackChunkName: "fish layout" */ '@/modules/fish/layouts/FishLayout.vue'),
     children: [
         {
             path: '/',

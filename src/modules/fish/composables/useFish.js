@@ -9,6 +9,7 @@ const useFish = ( fishId = 0) => {
 
     const currentFish = ref()
     const isLoading = ref( false )
+    const groupByRegion = ref( false )
     const searchFilter = ref('')
 
     const getAllFihses = async() => {
@@ -22,8 +23,9 @@ const useFish = ( fishId = 0) => {
     return {
         searchFilter,
         currentFish,
+        groupByRegion,
         getAllFihses,
-        getSpecies: computed( () => store.getters['fish/getSpecies'](searchFilter.value) ),
+        getSpecies: computed( () => store.getters['fish/getSpecies'](searchFilter.value, groupByRegion.value) ),
         getFishInfo:  computed( () => store.getters['fish/getFishInfo'](fishId) )
     }
 
